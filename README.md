@@ -36,7 +36,7 @@ SQL
 - item_id (FK)
 - quantity
 - slot_position
-  ￼- is_equipped
+- is_equipped
 
 
   Items (Relazione N:N con Characters attraverso Inventory)
@@ -48,6 +48,8 @@ SQL
 - level_requirement
 - description
 - base_stats (JSON/Object con statistiche)
+
+
   Operazioni CRUD Base da Implementare
   Characters
   CREATE: Creazione nuovo personaggio
@@ -74,7 +76,7 @@ SQL
 
 
   Sistema di Equipaggiamento
-  ￼Equip/Unequip items
+  Equip/Unequip items
   Verifica requisiti di livello
   Calcolo statistiche totali con equipment
   Sistema di Inventario Avanzato
@@ -106,9 +108,10 @@ SQL
   POST   /api/characters/{id}/equip/{itemId}
   POST   /api/characters/{id}/unequip/{itemId}
   GET    /api/characters/{id}/stats/total
+
   Validazioni da Implementare
   Characters
-  ￼Nome univoco
+  Nome univoco
   Classe valida
   Livello tra 1 e 100
   Statistiche base non negative
@@ -139,4 +142,4 @@ SQL
   Middleware per controlli avanzati
   Interceptor per logging e statistiche
   Sistema di achievement
-  ￼Concentrati prima sulla parte CRUD e assicurati che tutte le operazioni base funzionino correttamente. La Parte 2 può essere implementata successivamente come estensione del sistema.
+  Concentrati prima sulla parte CRUD e assicurati che tutte le operazioni base funzionino correttamente. La Parte 2 può essere implementata successivamente come estensione del sistema.
