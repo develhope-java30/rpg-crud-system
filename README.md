@@ -54,11 +54,13 @@ SQL
   READ: Visualizzazione dettagli personaggio
   UPDATE: Modifica statistiche/livello personaggio
   DELETE: Eliminazione personaggio
+- 
   Inventory
   CREATE: Aggiungere item all'inventario
   READ: Visualizzare inventario
   UPDATE: Modificare quantità/posizione items
   DELETE: Rimuovere items dall'inventario
+- 
   Items
   CREATE: Creare nuovo item
   READ: Visualizzare dettagli item
