@@ -21,7 +21,7 @@ public class InventoryService {
         return inventoryRepository.findAll();
     }
 
-    public Inventory addInventory(Inventory newInventory){
+    public Inventory createInventory(Inventory newInventory){
         return inventoryRepository.save(newInventory);
     }
 
