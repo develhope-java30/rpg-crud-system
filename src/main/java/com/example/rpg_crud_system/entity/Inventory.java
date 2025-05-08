@@ -1,9 +1,6 @@
 package com.example.rpg_crud_system.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 //  SQL
 //- id (PK)
@@ -23,13 +20,17 @@ public class Inventory {
     private Integer slot_position;
     private boolean is_equipped;
 
+    @ManyToOne
+    private CharacterEntity character;
+
     private Inventory(){}
 
-    public Inventory(Long id, Integer quantity, Integer slot_position, boolean is_equipped) {
+    public Inventory(Long id, Integer quantity, Integer slot_position, boolean is_equipped, CharacterEntity character) {
         this.id = id;
         this.quantity = quantity;
         this.slot_position = slot_position;
         this.is_equipped = is_equipped;
+        this.character = character;
     }
 
     public Long getId() {
@@ -64,4 +65,11 @@ public class Inventory {
         this.is_equipped = is_equipped;
     }
 
+    public CharacterEntity getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(CharacterEntity character) {
+        this.character = character;
+    }
 }
