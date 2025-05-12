@@ -21,7 +21,7 @@ public class ItemsController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ItemsEntity> itemById(Long id){
+    public ResponseEntity<ItemsEntity> itemById(@PathVariable Long id){
         Optional<ItemsEntity> foundItem = itemsService.itemFindById(id);
 
         return foundItem
