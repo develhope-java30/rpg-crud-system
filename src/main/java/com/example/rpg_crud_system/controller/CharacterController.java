@@ -39,4 +39,9 @@ public class CharacterController {
                 .orElseGet(()-> ResponseEntity.notFound().build());
     }
 
+    @DeleteMapping("/delete/{id}")
+    public void deleteCharacterById (@PathVariable Long id) {
+        characterService.deleteCharacter(id);
+    }
+
 }
