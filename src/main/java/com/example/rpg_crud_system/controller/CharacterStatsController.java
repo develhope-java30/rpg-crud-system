@@ -12,15 +12,24 @@ import java.util.List;
 @RequestMapping("/CharacterStats")
 public class CharacterStatsController {
     @Autowired
-    private CharacterStatsService characterStatsService;
+    private CharacterStatsService service;
 
     @GetMapping
-    public List<CharacterStats> getAllCharacterStats() {return getAllCharacterStats(); }
+    public List<CharacterStats> getAllCharacterStats() {
+        return service.getAllCharacterStats();
+    }
 
     @PostMapping
     public ResponseEntity<CharacterStats> addCharacterStats(@RequestBody CharacterStats newCharacterStats){
-        return ResponseEntity.ok(characterStatsService.addCharacterStats(newCharacterStats));
+        return ResponseEntity.ok(service.addCharacterStats(newCharacterStats));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCharacterStatsById(@PathVariable Long id){
+        service.deleteCharacterStatsById(id);
+        return ResponseEntity.noContent().build();
+    }
+
 
 
 }

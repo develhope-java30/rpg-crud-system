@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class CharacterStats {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long character_id;
+    private Long id;
     private Integer strength;
     private Integer dexterity;
     private Integer intelligence;
@@ -23,7 +23,7 @@ public class CharacterStats {
     private LocalDate updated_at;
 
     public CharacterStats(Long character_id, Integer strength, Integer dexterity, Integer intelligence, Integer wisdom, Integer charisma, Integer constitution, LocalDate updated_at) {
-        this.character_id = character_id;
+        this.id = id;
         this.strength = strength;
         this.dexterity = dexterity;
         this.intelligence = intelligence;
@@ -34,12 +34,12 @@ public class CharacterStats {
     }
 
 
-    public Long getCharacter_id() {
-        return character_id;
+    public Long getId() {
+        return id;
     }
 
-    public void setCharacter_id(Long character_id) {
-        this.character_id = character_id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Integer getStrength() {
