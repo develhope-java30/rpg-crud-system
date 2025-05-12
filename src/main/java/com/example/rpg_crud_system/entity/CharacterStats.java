@@ -25,7 +25,7 @@ public class CharacterStats {
     private CharacterStats() {
     }
 
-    public CharacterStats(Long character_id, Integer strength, Integer dexterity,
+    public CharacterStats(Long id, Integer strength, Integer dexterity,
                           Integer intelligence, Integer wisdom, Integer charisma,
                           Integer constitution, LocalDate updated_at, CharacterEntity characterEntity) {
         this.id = id;
