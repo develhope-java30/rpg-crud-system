@@ -21,6 +21,14 @@ public class ItemsService {
         return itemsRepository.findById(id);
     }
 
+    public Optional<ItemsEntity> updateItem(Long id, ItemsEntity itemToUpdate){
+        if(itemsRepository.existsById(id)){
+            itemToUpdate.setId(id);
+            return Optional.of(itemsRepository.save(itemToUpdate));
+        }
+        return Optional.empty();
+    }
+
     public ItemsEntity addItems(ItemsEntity newItem){
         return itemsRepository.save(newItem);
     }
