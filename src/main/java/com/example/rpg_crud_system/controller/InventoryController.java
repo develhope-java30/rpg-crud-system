@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/inventory")
@@ -19,9 +20,29 @@ public class InventoryController {
         return inventoryService.inventoryList();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Inventory> inventoryById(@PathVariable Long id){
+        Optional<Inventory> foundInventory = inventoryService.inventoryById(id);
+
+        return foundInventory
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+
+    }
+
     @PostMapping
     public ResponseEntity<Inventory> createInventory(@RequestBody Inventory newInventory){
         return ResponseEntity.ok(inventoryService.createInventory(newInventory));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Inventory> updateInventory(@PathVariable Long id, @RequestBody Inventory inventoryToUpdate){
+        Optional<Inventory> updatedInventory = inventoryService.inventoryUpdate(id, inventoryToUpdate);
+
+        return updatedInventory
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.badRequest().build());
+
     }
 
     @DeleteMapping("/{id}")
