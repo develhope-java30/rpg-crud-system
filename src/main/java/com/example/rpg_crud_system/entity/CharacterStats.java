@@ -1,9 +1,6 @@
 package com.example.rpg_crud_system.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.http.ResponseEntity;
 
@@ -22,7 +19,15 @@ public class CharacterStats {
     private Integer constitution;
     private LocalDate updated_at;
 
-    public CharacterStats(Long character_id, Integer strength, Integer dexterity, Integer intelligence, Integer wisdom, Integer charisma, Integer constitution, LocalDate updated_at) {
+    @OneToOne
+    private CharacterEntity characterEntity;
+
+    private CharacterStats() {
+    }
+
+    public CharacterStats(Long character_id, Integer strength, Integer dexterity,
+                          Integer intelligence, Integer wisdom, Integer charisma,
+                          Integer constitution, LocalDate updated_at, CharacterEntity characterEntity) {
         this.id = id;
         this.strength = strength;
         this.dexterity = dexterity;
@@ -31,6 +36,7 @@ public class CharacterStats {
         this.charisma = charisma;
         this.constitution = constitution;
         this.updated_at = updated_at;
+        this.characterEntity = characterEntity;
     }
 
 
@@ -96,5 +102,13 @@ public class CharacterStats {
 
     public void setUpdated_at(LocalDate updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public CharacterEntity getCharacterEntity() {
+        return characterEntity;
+    }
+
+    public void setCharacterEntity(CharacterEntity characterEntity) {
+        this.characterEntity = characterEntity;
     }
 }

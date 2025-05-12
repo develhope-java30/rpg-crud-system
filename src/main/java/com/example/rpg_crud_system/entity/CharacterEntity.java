@@ -19,9 +19,12 @@ public class CharacterEntity {
     private LocalDate created_at;
     private LocalDate updated_at;
 
-    private CharacterEntity() {}
+    private CharacterEntity() {
+    }
 
-    public CharacterEntity(Long id, String name, Integer level, String characterClass, Integer experience, Integer health, Integer mana, LocalDate created_at, LocalDate updated_at) {
+    public CharacterEntity(Long id, String name, Integer level, String characterClass,
+                           Integer experience, Integer health, Integer mana,
+                           LocalDate created_at, LocalDate updated_at) {
         this.id = id;
         this.name = name;
         this.level = level;
