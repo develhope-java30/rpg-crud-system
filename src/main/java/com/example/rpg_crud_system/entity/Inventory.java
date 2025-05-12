@@ -2,6 +2,8 @@ package com.example.rpg_crud_system.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 //  SQL
 //- id (PK)
 //- character_id (FK) TODO
@@ -23,14 +25,18 @@ public class Inventory {
     @ManyToOne
     private CharacterEntity character;
 
+    @ManyToMany
+    private List<ItemsEntity> items;
+
     private Inventory(){}
 
-    public Inventory(Long id, Integer quantity, Integer slot_position, boolean is_equipped, CharacterEntity character) {
+    public Inventory(Long id, Integer quantity, Integer slot_position, boolean is_equipped, CharacterEntity character, List<ItemsEntity> items) {
         this.id = id;
         this.quantity = quantity;
         this.slot_position = slot_position;
         this.is_equipped = is_equipped;
         this.character = character;
+        this.items = items;
     }
 
     public Long getId() {
@@ -71,5 +77,13 @@ public class Inventory {
 
     public void setCharacter(CharacterEntity character) {
         this.character = character;
+    }
+
+    public List<ItemsEntity> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ItemsEntity> items) {
+        this.items = items;
     }
 }
