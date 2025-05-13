@@ -1,6 +1,10 @@
 package com.example.rpg_crud_system.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -10,11 +14,28 @@ public class CharacterEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @UniqueElements
     private String name;
+
+    @NotNull
+    @Min(value = 1)
+    @Max(value = 100)
     private Integer level;
+
     private String characterClass;
+
+    @NotNull
+    @Min(value = 0)
     private Integer experience;
+
+    @NotNull
+    @Min(value = 0)
     private Integer health;
+
+    @NotNull
+    @Min(value = 0)
     private Integer mana;
     private LocalDate created_at;
     private LocalDate updated_at;
