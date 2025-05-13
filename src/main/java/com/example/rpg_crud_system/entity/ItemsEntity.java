@@ -2,14 +2,15 @@ package com.example.rpg_crud_system.entity;
 
 import com.example.rpg_crud_system.entity.enumerated.ItemsTypes;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.UniqueElements;
 
-//- id (PK)
-//- name
-//- type (weapon, armor, potion, etc.)
-//- rarity
-//- level_requirement
-//- description
-//- base_stats (JSON/Object con statistiche)
+//  Nome univoco
+//  Tipo valido
+//  Requisiti di livello validi
+//  Statistiche non negative
 
 @Entity
 public class ItemsEntity {
@@ -17,14 +18,19 @@ public class ItemsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @UniqueElements
     private String name;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     private ItemsTypes type;
 
-
     private String rarity;
+
+    @Min(0)
+    @Max(100)
     private Integer level_requirement;
+
     private String description;
 
     private ItemsEntity(){}
