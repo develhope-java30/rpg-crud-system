@@ -28,9 +28,9 @@ public class CharacterStatsService {
     public Optional<CharacterStats> findCharacterStatsById(Long id) {
         // recupero dell'oggetto optional
         Optional<CharacterStats> characterStatsOptional = characterStatsRepository.findById(id);
+        // ogni volta che ho un oggetto devo controllare se e' presente
         if (characterStatsOptional.isPresent()){
             return characterStatsOptional;
-
         }else {
             return Optional.empty();
         }
