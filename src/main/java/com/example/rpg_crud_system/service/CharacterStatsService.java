@@ -25,8 +25,15 @@ public class CharacterStatsService {
     public CharacterStats addCharacterStats(CharacterStats newCharacterStats) {
         return characterStatsRepository.save(newCharacterStats);
     }
-    public CharacterStats findCharacterStatsById(Long id) {
-        return characterStatsRepository.findById(id).get();
+    public Optional<CharacterStats> findCharacterStatsById(Long id) {
+        // recupero dell'oggetto optional
+        Optional<CharacterStats> characterStatsOptional = characterStatsRepository.findById(id);
+        if (characterStatsOptional.isPresent()){
+            return characterStatsOptional;
+
+        }else {
+            return Optional.empty();
+        }
     }
 
     public Optional<CharacterStats> updateCharacterStats(Long id, CharacterStats characterStatsToUpdate){
