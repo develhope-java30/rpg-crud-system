@@ -47,7 +47,7 @@ SQL
 - rarity
 - level_requirement
 - description
-- base_stats (JSON/Object con statistiche)
+- base_stats (JSON/Object con statistiche) (DA VERIFICARE)
 
 
   Operazioni CRUD Base da Implementare
@@ -109,18 +109,22 @@ SQL
   POST   /api/characters/{id}/unequip/{itemId}
   GET    /api/characters/{id}/stats/total
 
-  Validazioni da Implementare
-  Characters
+
+Validazioni da Implementare: 
+
+Characters:
   Nome univoco
   Classe valida
   Livello tra 1 e 100
   Statistiche base non negative
-  Items
+
+Items:
   Nome univoco
   Tipo valido
   Requisiti di livello validi
   Statistiche non negative
-  Inventory
+
+Inventory:
   Slot validi
   Quantità positive
   Verifica spazio disponibile
@@ -129,7 +133,8 @@ SQL
   Aggiungere validazioni input
   Implementare paginazione per le liste
   Aggiungere sorting e filtering base
-  Documentare le API
+
+Documentare le API:
   Bonus (Opzionali)
   Aggiungere sistema di ricerca
   Implementare caching
