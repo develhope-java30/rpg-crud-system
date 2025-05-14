@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/CharacterStats")
+@RequestMapping("/character_stats")
 public class CharacterStatsController {
     @Autowired
     private CharacterStatsService service;

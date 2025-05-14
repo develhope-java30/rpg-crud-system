@@ -22,7 +22,7 @@ public class CharacterStats {
     @OneToOne
     private CharacterEntity characterEntity;
 
-    private CharacterStats() {
+    public CharacterStats() {
     }
 
     public CharacterStats(Long id, Integer strength, Integer dexterity,
